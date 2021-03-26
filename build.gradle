@@ -13,4 +13,5 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit:1.4.10'
+    testImplementation 'org.assertj:assertj-core:3.9.0'
 }
