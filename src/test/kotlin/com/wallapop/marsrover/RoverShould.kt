@@ -8,7 +8,7 @@ class RoverShould {
     @Test
     fun `report its position in the initial state`() {
         val rover = Rover()
-        val report = Report(Direction.North, Coordinates(0, 0))
+        val report = State(Direction.North, Coordinates(0, 0))
 
         assertThat(rover.report()).isEqualTo(report)
     }
@@ -18,6 +18,17 @@ class RoverShould {
         val rover = Rover()
         val initialCoordinates = rover.report().coordinates
         val expected = initialCoordinates.incrementY()
+
+        rover.moveForward()
+
+        assertThat(rover.report().coordinates).isEqualTo(expected)
+    }
+
+    @Test
+    fun `move forward facing south`() {
+        val rover = Rover(Coordinates(0, 0), Direction.South)
+        val initialCoordinates = rover.report().coordinates
+        val expected = initialCoordinates.decrementY()
 
         rover.moveForward()
 

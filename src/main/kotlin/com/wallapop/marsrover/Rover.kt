@@ -4,17 +4,23 @@ class Rover(
     private var coordinates: Coordinates = Coordinates(0, 0),
     private val direction: Direction = Direction.North) {
 
-    fun report() = Report(direction, coordinates)
+    fun report() = State(direction, coordinates)
     fun moveForward() {
-        coordinates = coordinates.incrementY()
+        coordinates = when(direction) {
+            Direction.East -> TODO()
+            Direction.North -> coordinates.incrementY()
+            Direction.South -> coordinates.decrementY()
+            Direction.West -> TODO()
+        }
     }
 
 }
 
-data class Report(val direction: Direction, val coordinates: Coordinates)
+data class State(val direction: Direction, val coordinates: Coordinates)
 
 data class Coordinates(val x: Int, val y: Int) {
     fun incrementY() = copy(y = y + 1)
+    fun decrementY() = copy(y = y - 1)
 }
 
 sealed class Direction {
