@@ -34,4 +34,15 @@ class RoverShould {
 
         assertThat(rover.report().coordinates).isEqualTo(expected)
     }
+
+    @Test
+    fun `move forward facing east`() {
+        val rover = Rover(Coordinates(0, 0), Direction.East)
+        val initialCoordinates = rover.report().coordinates
+        val expected = initialCoordinates.incrementX()
+
+        rover.moveForward()
+
+        assertThat(rover.report().coordinates).isEqualTo(expected)
+    }
 }
