@@ -12,4 +12,14 @@ class RoverShould {
 
         assertThat(rover.report()).isEqualTo(report)
     }
+
+    @Test
+    fun `move forward from the default starting point`() {
+        val rover = Rover()
+        rover.moveForward()
+
+        val expectedCoordinates = Coordinates(0, 1)
+
+        assertThat(rover.report().position).isEqualTo(expectedCoordinates)
+    }
 }

@@ -1,8 +1,13 @@
 package com.wallapop.marsrover
 
-class Rover {
+class Rover(
+    private val coordinates: Coordinates = Coordinates(0, 0),
+    private val direction: Direction = Direction.North) {
 
-    fun report() = Report(Direction.North, Coordinates(0, 0))
+    fun report() = Report(direction, coordinates)
+    fun moveForward() {
+
+    }
 
 }
 
