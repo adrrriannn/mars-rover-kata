@@ -1,19 +1,21 @@
 package com.wallapop.marsrover
 
 class Rover(
-    private val coordinates: Coordinates = Coordinates(0, 0),
+    private var coordinates: Coordinates = Coordinates(0, 0),
     private val direction: Direction = Direction.North) {
 
     fun report() = Report(direction, coordinates)
     fun moveForward() {
-
+        coordinates = coordinates.incrementY()
     }
 
 }
 
-data class Report(val direction: Direction, val position: Coordinates)
+data class Report(val direction: Direction, val coordinates: Coordinates)
 
-data class Coordinates(val x: Int, val y: Int)
+data class Coordinates(val x: Int, val y: Int) {
+    fun incrementY() = copy(y = y + 1)
+}
 
 sealed class Direction {
     object North : Direction()
