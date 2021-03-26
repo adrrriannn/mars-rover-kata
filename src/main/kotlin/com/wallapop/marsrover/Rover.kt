@@ -10,7 +10,7 @@ class Rover(
             Direction.East -> coordinates.incrementX()
             Direction.North -> coordinates.incrementY()
             Direction.South -> coordinates.decrementY()
-            Direction.West -> TODO()
+            Direction.West -> coordinates.decrementX()
         }
     }
 
@@ -22,6 +22,7 @@ data class Coordinates(val x: Int, val y: Int) {
     fun incrementY() = copy(y = y + 1)
     fun decrementY() = copy(y = y - 1)
     fun incrementX() = copy(x = x + 1)
+    fun decrementX() = copy(x = x - 1)
 }
 
 sealed class Direction {
